@@ -11,7 +11,6 @@ public class BasicAuthenticationTest extends BaseNavigationTest {
 
 	@Test
 	public void canAuthenticate() {
-		homePage();
 		assertThat(homePage().title(), is(HomePage.HOME_PAGE_TITLE));
 	}
 

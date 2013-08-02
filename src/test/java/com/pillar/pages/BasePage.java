@@ -26,15 +26,19 @@ public class BasePage {
   }
   
   protected final FindsByCssSelector cssSelector() {
-	  return cssSelector;
+    return cssSelector;
   }
   
   protected final JavascriptExecutor javascriptExecutor() {
-	  return executor;
+    return executor;
   }
 
   protected final int maxWait() {
     return maxWait;
+  }
+
+  protected final void closeBrowser() {
+    driver.close();
   }
 
   protected final WebElement findElement(final String css) {
@@ -54,10 +58,6 @@ public class BasePage {
       }
     }
     return element;
-  }
-
-  protected final void closeBrowser() {
-    driver.close();
   }
 
   protected final void clickLink(final String linkCssSelector) {
