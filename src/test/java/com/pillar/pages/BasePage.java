@@ -1,10 +1,8 @@
 package com.pillar.pages;
 
 import org.joda.time.DateTime;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.internal.FindsByCssSelector;
 
 import com.pillar.driver.ModernWebDriver;
 
