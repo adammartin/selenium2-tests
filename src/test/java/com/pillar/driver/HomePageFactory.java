@@ -23,10 +23,10 @@ public class HomePageFactory {
     final ModernWebDriver driver = webDriver();
     final int maxWait = parseInt(getProperty(MAX_WAIT));
     if (Boolean.TRUE.toString().equalsIgnoreCase(getProperty(AUTHENTICATION_REQUIRED))) {
-      final AuthenticationPage authPage = new AuthenticationPage(driver, driver, driver, maxWait);
+      final AuthenticationPage authPage = new AuthenticationPage(driver, maxWait);
       return authPage.authenticate(getProperty(USER_GROUP), getProperty(PASSWORD));
     }
-    return new HomePage(driver, driver, driver, maxWait);
+    return new HomePage(driver, maxWait);
   }
 
   private static ModernWebDriver webDriver() {

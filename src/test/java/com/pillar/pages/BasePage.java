@@ -3,25 +3,26 @@ package com.pillar.pages;
 import org.joda.time.DateTime;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.internal.FindsByCssSelector;
 
+import com.pillar.driver.ModernWebDriver;
+
 public class BasePage {
 
-  private final WebDriver driver;
+  private final ModernWebDriver driver;
   private final FindsByCssSelector cssSelector;
   private final JavascriptExecutor executor;
   private final int maxWait;
 
-  public BasePage(final WebDriver driver, final FindsByCssSelector cssSelector, final JavascriptExecutor executor, final int maxWaitInSeconds) {
+  public BasePage(final ModernWebDriver driver, final FindsByCssSelector cssSelector, final JavascriptExecutor executor, final int maxWaitInSeconds) {
     this.driver = driver;
     this.cssSelector = cssSelector;
     this.executor = executor;
     maxWait = maxWaitInSeconds * 1000;
   }
 
-  protected final WebDriver driver() {
+  protected final ModernWebDriver driver() {
     return driver;
   }
   

@@ -1,16 +1,14 @@
 package com.pillar.pages;
 
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.internal.FindsByCssSelector;
+import com.pillar.driver.ModernWebDriver;
 
 public class HomePage extends BasePage {
 
 	public static final String HOME_PAGE_TITLE = "Welcome to BlueBox";
 	private static final String HOMEPAGE_HEADER_LINK = "div#blueBoxLogo a";
 
-	public HomePage(final WebDriver driver, final FindsByCssSelector cssSelector, final JavascriptExecutor executor, final int maxWaitInSeconds) {
-		super(driver, cssSelector, executor, maxWaitInSeconds);
+	public HomePage(final ModernWebDriver driver, final int maxWaitInSeconds) {
+		super(driver, driver, driver, maxWaitInSeconds);
 	}
 
 	public final void close() {
