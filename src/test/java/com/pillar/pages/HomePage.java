@@ -8,7 +8,7 @@ public class HomePage extends BasePage {
 	private static final String HOMEPAGE_HEADER_LINK = "div#blueBoxLogo a";
 
 	public HomePage(final ModernWebDriver driver, final int maxWaitInSeconds) {
-		super(driver, driver, driver, maxWaitInSeconds);
+		super(driver, maxWaitInSeconds);
 	}
 
 	public final void close() {

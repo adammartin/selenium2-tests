@@ -13,7 +13,7 @@ public class AuthenticationPage extends BasePage {
   public static String PAGE_TITLE = "Login";
 
   public AuthenticationPage(final ModernWebDriver driver, final int maxWaitInSeconds) {
-    super(driver, driver, driver, maxWaitInSeconds);
+    super(driver, maxWaitInSeconds);
     if (!PAGE_TITLE.equals(driver.getTitle())) {
       throw new IllegalStateException(INCORRECT_PAGE + driver.getTitle());
     }

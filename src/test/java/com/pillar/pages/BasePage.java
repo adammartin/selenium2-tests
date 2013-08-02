@@ -11,14 +11,10 @@ import com.pillar.driver.ModernWebDriver;
 public class BasePage {
 
   private final ModernWebDriver driver;
-  private final FindsByCssSelector cssSelector;
-  private final JavascriptExecutor executor;
   private final int maxWait;
 
-  public BasePage(final ModernWebDriver driver, final FindsByCssSelector cssSelector, final JavascriptExecutor executor, final int maxWaitInSeconds) {
+  public BasePage(final ModernWebDriver driver, final int maxWaitInSeconds) {
     this.driver = driver;
-    this.cssSelector = cssSelector;
-    this.executor = executor;
     maxWait = maxWaitInSeconds * 1000;
   }
 
@@ -26,14 +22,6 @@ public class BasePage {
     return driver;
   }
   
-  protected final FindsByCssSelector cssSelector() {
-    return cssSelector;
-  }
-  
-  protected final JavascriptExecutor javascriptExecutor() {
-    return executor;
-  }
-
   protected final int maxWait() {
     return maxWait;
   }
@@ -44,7 +32,7 @@ public class BasePage {
 
   protected final WebElement findElement(final String css) {
     waitForAjaxToComplete();
-    final WebElement element = cssSelector.findElementByCssSelector(css);
+    final WebElement element = driver.findElementByCssSelector(css);
     waitForAjaxToComplete();
     return element;
   }
@@ -53,7 +41,7 @@ public class BasePage {
     WebElement element = null;
     final long end = System.currentTimeMillis() + maxWait;
     while (System.currentTimeMillis() < end) {
-      element = cssSelector.findElementByCssSelector(css);
+      element = driver.findElementByCssSelector(css);
       if (element.isDisplayed()) {
         break;
       }
@@ -102,6 +90,6 @@ public class BasePage {
   }
 
   private Long jQueryActive() {
-    return (Long) executor.executeScript("return jQuery.active;");
+    return (Long) driver.executeScript("return jQuery.active;");
   }
 }
