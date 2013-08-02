@@ -20,7 +20,7 @@ public class HomePageFactory {
   private static ResourceBundle bundle;
 
   public final static HomePage loadHomePage() {
-    final HtmlUnitDriver driver = webDriver();
+    final ModernWebDriver driver = webDriver();
     final int maxWait = parseInt(getProperty(MAX_WAIT));
     if (Boolean.TRUE.toString().equalsIgnoreCase(getProperty(AUTHENTICATION_REQUIRED))) {
       final AuthenticationPage authPage = new AuthenticationPage(driver, driver, driver, maxWait);
@@ -29,10 +29,10 @@ public class HomePageFactory {
     return new HomePage(driver, driver, driver, maxWait);
   }
 
-  private static HtmlUnitDriver webDriver() {
-    final HtmlUnitDriver driver = new HtmlUnitDriver(true);
-    driver.get(getProperty(APPLICATION_URL));
-    return driver;
+  private static ModernWebDriver webDriver() {
+    final HtmlUnitDriver htmlDriver = new HtmlUnitDriver(true);
+    htmlDriver.get(getProperty(APPLICATION_URL));
+    return new ModernWebDriver(htmlDriver, htmlDriver, htmlDriver);
   }
 
   private static void loadPropertiesIfNotAlreadyLoaded() {
