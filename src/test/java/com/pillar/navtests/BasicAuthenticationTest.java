@@ -9,9 +9,9 @@ import com.pillar.pages.HomePage;
 
 public class BasicAuthenticationTest extends BaseNavigationTest {
 
-	@Test
-	public void canAuthenticate() {
-		assertThat(homePage().title(), is(HomePage.HOME_PAGE_TITLE));
-	}
+  @Test
+  public void canAuthenticate() {
+    assertThat(homePage().title(), is(HomePage.HOME_PAGE_TITLE));
+  }
 
 }
