@@ -17,7 +17,7 @@ public class HomePageFactory {
 
   public final HomePage loadHomePage() {
     final int maxWait = parseInt(getProperty(MAX_WAIT));
-    final ModernWebDriver driver = new ModernWebDriverFactory().webDriver(getProperty(DRIVER_TYPE), getProperty(APPLICATION_URL));
+    final ModernWebDriver driver = new ModernWebDriverFactory().webDriver(bundle);
     if (Boolean.TRUE.toString().equalsIgnoreCase(getProperty(AUTHENTICATION_REQUIRED))) {
       final AuthenticationPage authPage = new AuthenticationPage(driver, maxWait);
       return authPage.authenticate(getProperty(USER_GROUP), getProperty(PASSWORD));

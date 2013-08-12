@@ -11,6 +11,7 @@ public class PropertyLoader {
   public static final String APPLICATION_URL = "selenium.application.url";
   public static final String DEFAULT_PROPERTY_FILE_NAME = "selenium.properties";
   public static final String DRIVER_TYPE = "selenium.driver";
+  public static final String DRIVER_LOCATION = "selenium.driver.executable.location";
 
   public PropertyLoader() {
   }
