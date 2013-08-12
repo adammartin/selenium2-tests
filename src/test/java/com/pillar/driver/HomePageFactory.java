@@ -1,9 +1,8 @@
 package com.pillar.driver;
 
-import static java.lang.Integer.parseInt;
 import static com.pillar.driver.PropertyLoader.*;
+import static java.lang.Integer.parseInt;
 
-import java.io.IOException;
 import java.util.Properties;
 
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
