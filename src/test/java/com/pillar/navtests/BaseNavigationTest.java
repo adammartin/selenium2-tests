@@ -1,10 +1,12 @@
 package com.pillar.navtests;
 
+import static com.pillar.driver.PropertyLoader.DEFAULT_PROPERTY_FILE_NAME;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 
 import com.pillar.driver.HomePageFactory;
+import com.pillar.driver.PropertyLoader;
 import com.pillar.pages.HomePage;
 
 public class BaseNavigationTest {
@@ -16,7 +18,7 @@ public class BaseNavigationTest {
 
   @BeforeClass
   public final static void setUpClass() {
-    homePage = HomePageFactory.loadHomePage();
+    homePage = new HomePageFactory(new PropertyLoader().loadProperties(DEFAULT_PROPERTY_FILE_NAME)).loadHomePage();
   }
 
   @AfterClass

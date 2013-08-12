@@ -11,9 +11,13 @@ import com.pillar.pages.AuthenticationPage;
 import com.pillar.pages.HomePage;
 
 public class HomePageFactory {
-  private static Properties bundle;
+  private Properties bundle;
+  
+  public HomePageFactory(final Properties bundle) {
+    this.bundle = bundle;
+  }
 
-  public final static HomePage loadHomePage() {
+  public final HomePage loadHomePage() {
     final ModernWebDriver driver = webDriver();
     final int maxWait = parseInt(getProperty(MAX_WAIT));
     if (Boolean.TRUE.toString().equalsIgnoreCase(getProperty(AUTHENTICATION_REQUIRED))) {
@@ -23,20 +27,13 @@ public class HomePageFactory {
     return new HomePage(driver, maxWait);
   }
 
-  private static ModernWebDriver webDriver() {
+  private ModernWebDriver webDriver() {
     final HtmlUnitDriver htmlDriver = new HtmlUnitDriver(true);
     htmlDriver.get(getProperty(APPLICATION_URL));
     return new ModernWebDriver(htmlDriver, htmlDriver, htmlDriver);
   }
 
-  private static void loadPropertiesIfNotAlreadyLoaded() {
-    if (bundle == null) {
-      bundle = new PropertyLoader().loadProperties(DEFAULT_PROPERTY_FILE_NAME);
-    }
-  }
-
-  private static String getProperty(final String propertyName) {
-    loadPropertiesIfNotAlreadyLoaded();
+  private String getProperty(final String propertyName) {
     return bundle.getProperty(propertyName);
   }
 }
