@@ -18,7 +18,7 @@ public class HomePageFactory {
   }
 
   public final HomePage loadHomePage() {
-    final ModernWebDriver driver = webDriver();
+    final ModernWebDriver driver = webDriver(getProperty(DRIVER_TYPE), getProperty(APPLICATION_URL));
     final int maxWait = parseInt(getProperty(MAX_WAIT));
     if (Boolean.TRUE.toString().equalsIgnoreCase(getProperty(AUTHENTICATION_REQUIRED))) {
       final AuthenticationPage authPage = new AuthenticationPage(driver, maxWait);
@@ -27,9 +27,9 @@ public class HomePageFactory {
     return new HomePage(driver, maxWait);
   }
 
-  private ModernWebDriver webDriver() {
+  private ModernWebDriver webDriver(final String driverType, final String applicationUrl) {
     final HtmlUnitDriver htmlDriver = new HtmlUnitDriver(true);
-    htmlDriver.get(getProperty(APPLICATION_URL));
+    htmlDriver.get(applicationUrl);
     return new ModernWebDriver(htmlDriver, htmlDriver, htmlDriver);
   }
 

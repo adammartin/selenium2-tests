@@ -10,6 +10,7 @@ public class PropertyLoader {
   public static final String AUTHENTICATION_REQUIRED = "selenium.auth.active";
   public static final String APPLICATION_URL = "selenium.application.url";
   public static final String DEFAULT_PROPERTY_FILE_NAME = "selenium.properties";
+  public static final String DRIVER_TYPE = "selenium.driver";
 
   public PropertyLoader() {
   }
