@@ -5,8 +5,6 @@ import static java.lang.Integer.parseInt;
 
 import java.util.Properties;
 
-import org.openqa.selenium.htmlunit.HtmlUnitDriver;
-
 import com.pillar.pages.AuthenticationPage;
 import com.pillar.pages.HomePage;
 
@@ -18,19 +16,13 @@ public class HomePageFactory {
   }
 
   public final HomePage loadHomePage() {
-    final ModernWebDriver driver = webDriver(getProperty(DRIVER_TYPE), getProperty(APPLICATION_URL));
     final int maxWait = parseInt(getProperty(MAX_WAIT));
+    final ModernWebDriver driver = new ModernWebDriverFactory().webDriver(getProperty(DRIVER_TYPE), getProperty(APPLICATION_URL));
     if (Boolean.TRUE.toString().equalsIgnoreCase(getProperty(AUTHENTICATION_REQUIRED))) {
       final AuthenticationPage authPage = new AuthenticationPage(driver, maxWait);
       return authPage.authenticate(getProperty(USER_GROUP), getProperty(PASSWORD));
     }
     return new HomePage(driver, maxWait);
-  }
-
-  private ModernWebDriver webDriver(final String driverType, final String applicationUrl) {
-    final HtmlUnitDriver htmlDriver = new HtmlUnitDriver(true);
-    htmlDriver.get(applicationUrl);
-    return new ModernWebDriver(htmlDriver, htmlDriver, htmlDriver);
   }
 
   private String getProperty(final String propertyName) {
