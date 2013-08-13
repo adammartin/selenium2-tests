@@ -22,7 +22,7 @@ public class HomePageFactory {
       final AuthenticationPage authPage = new AuthenticationPage(driver, maxWait, bundle);
       return authPage.authenticate(getProperty(USER_GROUP), getProperty(PASSWORD));
     }
-    return new HomePage(driver, maxWait);
+    return new HomePage(driver, maxWait, bundle.getProperty(APPLICATION_URL));
   }
 
   private String getProperty(final String propertyName) {

@@ -4,11 +4,11 @@ import com.pillar.driver.ModernWebDriver;
 
 public class HomePage extends BasePage {
 
-  public static final String HOME_PAGE_TITLE = "Welcome to BlueBox";
-  private static final String HOMEPAGE_HEADER_LINK = "div#blueBoxLogo a";
+  private final String address;
 
-  public HomePage(final ModernWebDriver driver, final int maxWaitInSeconds) {
+  public HomePage(final ModernWebDriver driver, final int maxWaitInSeconds, final String address) {
     super(driver, maxWaitInSeconds);
+    this.address = address;
   }
 
   public final void close() {
@@ -16,7 +16,7 @@ public class HomePage extends BasePage {
   }
 
   public void returnToHomePage() {
-    clickLink(HOMEPAGE_HEADER_LINK);
+    this.driver().navigate().to(address);
   }
 
   public final String title() {

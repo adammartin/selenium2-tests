@@ -1,6 +1,7 @@
 package com.pillar.pages;
 
 import static org.openqa.selenium.By.name;
+import static com.pillar.driver.PropertyLoader.APPLICATION_URL;
 
 import java.util.Properties;
 
@@ -27,7 +28,7 @@ public class AuthenticationPage extends BasePage {
 
   public final HomePage authenticate(final String userName, final String password) {
     enterCredentials(userName, password).submit();
-    return new HomePage(driver(), maxWait());
+    return new HomePage(driver(), maxWait(), bundle.getProperty(APPLICATION_URL));
   }
 
   private final WebElement enterCredentials(final String userName, final String password) {
