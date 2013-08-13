@@ -1,6 +1,7 @@
 package com.pillar.driver;
 
 import static com.pillar.driver.PropertyLoader.*;
+import static java.lang.String.format;
 
 import java.util.Properties;
 
@@ -16,6 +17,8 @@ public class ModernWebDriverFactory {
 
   private static final String CHROME_EXECUTABLE_PROPERTY = "webdriver.chrome.driver";
   private static final String FIREFOX_EXECUTABLE_PROPERTY = "webdriver.firefox.bin";
+  
+  private static final String INVALID_DRIVER_EXCEPTION_MESSAGE = "Invalid driverType supplied '%s', valid driver types are htmlunit and firefox";
 
   public ModernWebDriver webDriver(Properties bundle) {
     final String applicationUrl = bundle.getProperty(APPLICATION_URL);
@@ -28,7 +31,7 @@ public class ModernWebDriverFactory {
       case CHROME_DRIVER :
         chromeDriver(bundle);
       default: 
-        throw new RuntimeException("Invalid driverType supplied '" + driverType + "', valid driver types are htmlunit and firefox");
+        throw new RuntimeException(format(INVALID_DRIVER_EXCEPTION_MESSAGE, driverType));
     }
   }
 

@@ -8,7 +8,14 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.internal.FindsByCssSelector;
-
+/**
+ * ModernWebDriver is intended to be a simple facade to allow us to wrap a RemoteWebDriver as easily as
+ * a headless web driver (like HtmlUnitDriver).  This provides a layer of abstraction so test writers
+ * do not need to account for the various flavor of drivers.
+ * 
+ * @author adammartin
+ *
+ */
 public class ModernWebDriver implements WebDriver, JavascriptExecutor, FindsByCssSelector {
 
   private final WebDriver driver;
