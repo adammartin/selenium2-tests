@@ -26,9 +26,9 @@ public class ModernWebDriverFactory {
       case FIREFOX_DRIVER :
         return fireFoxDriver(bundle, applicationUrl);
       case CHROME_DRIVER :
-        return chromeDriver(bundle);
+        chromeDriver(bundle);
       default: 
-        throw new RuntimeException("Invalid driverType supplied '" + driverType + "', valid driver types are htmlunit, firefox, and chrome");
+        throw new RuntimeException("Invalid driverType supplied '" + driverType + "', valid driver types are htmlunit and firefox");
     }
   }
 
