@@ -17,7 +17,7 @@ public class PropertyLoader {
   }
   
   public final Properties loadProperties(final String propertyFileName) {
-    Properties properties = new Properties();
+    final Properties properties = new Properties();
     try {
       properties.load(PropertyLoader.class.getClassLoader().getResourceAsStream(DEFAULT_PROPERTY_FILE_NAME));
     } catch (IOException e) {

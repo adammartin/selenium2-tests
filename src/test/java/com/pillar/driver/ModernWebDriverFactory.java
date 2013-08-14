@@ -31,7 +31,7 @@ public class ModernWebDriverFactory {
       case CHROME_DRIVER :
         chromeDriver(bundle);
       default: 
-        throw new RuntimeException(format(INVALID_DRIVER_EXCEPTION_MESSAGE, driverType));
+        throw new IllegalArgumentException(format(INVALID_DRIVER_EXCEPTION_MESSAGE, driverType));
     }
   }
 
