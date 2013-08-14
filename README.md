@@ -8,3 +8,10 @@ The goal is to turn this project into a Maven Archetype to make UX Navigation Fl
 Suggestion and contributions are welcome and feel free to use this code.  
 
 Currently I could use help with the Chrome Driver as it has issues in the latest implementation.
+
+Usage
+=====
+
+From a command prompt type:
+
+mvn clean verify
