@@ -17,6 +17,19 @@ From a command prompt type:
 
 mvn clean verify
 
+How to Add Tests
+----------------
+Fundamentally this is a JUnit testing style project.  As a developer you simply need to do the following:
+
+* Clone the project
+* Enable/Disable the authentication in the selenium.properties file
+	+ 'selenium.auth.active' activates the authentication mechanism.
+    + 'selenium.auth.usergroup' sets the user id to authenticate.
+    + 'selenium.auth.password' sets the password to authenticate.  This allows security to control the password actually used at runtime during deployment if necessary.  This is so that the security team can keep staging or prod passwords secure and not checked into SCM if necessary.  They can at deploy time swap the property file out or even set this one variable.
+	+ 'selenium.auth.element.name.password' sets the name attribute when searching for the password field
+	+ 'selenium.auth.element.name.user' sets the name attribute when searching for the user id field.
+	+ 'selenium.auth.element.page.title' sets the title of the login page to assert we have the login page correct.
+
 Changing Environments
 ---------------------
 The environment settings are controlled in the pom.xml as part of the profile.  To change simply modify the following section of code:
