@@ -29,6 +29,8 @@ Fundamentally this is a JUnit testing style project.  As a developer you simply 
 	+ 'selenium.auth.element.name.password' sets the name attribute when searching for the password field
 	+ 'selenium.auth.element.name.user' sets the name attribute when searching for the user id field.
 	+ 'selenium.auth.element.page.title' sets the title of the login page to assert we have the login page correct.
+* Set the appropriate driver (html, chrome, and firefox are all currently supported).  I have plans to try and make this a comma seperated configuration so we can run the suite in multiple browsers.
+* Finally extend your first test from BaseNavigationTest which bootstraps our testing framework.  I believe there is a more sophisticated way to handle this via annotations (perhaps a custom annotation or two) but this currently works.
 
 Changing Environments
 ---------------------
