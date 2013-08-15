@@ -29,7 +29,7 @@ The environment settings are controlled in the pom.xml as part of the profile.  
 					&lt;activeByDefault&gt;true&lt;/activeByDefault&gt;
 				&lt;/activation&gt;
 				&lt;properties&gt;
-					&lt;environment&gt;qa&lt;/environment&gt;
+					&lt;environment&gt;<b>qa</b>&lt;/environment&gt;
 				&lt;/properties&gt;
 			&lt;/profile&gt;
 		&lt;/profiles&gt;
