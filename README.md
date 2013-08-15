@@ -10,9 +10,27 @@ Suggestion and contributions are welcome and feel free to use this code.
 Usage
 =====
 
+Execution
+---------
+
 From a command prompt type:
 
 mvn clean verify
+
+Changing Environments
+---------------------
+The environment settings are controlled in the pom.xml as part of the profile.  To change simply modify the following section of code:
+'	<profiles>
+		<profile>
+			<id>SeleniumTest</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<properties>
+				<environment>qa</environment>
+			</properties>
+		</profile>
+	</profiles>'
 
 Notes
 =====
