@@ -32,6 +32,10 @@ Fundamentally this is a JUnit testing style project.  As a developer you simply 
 * Set the appropriate driver (html, chrome, and firefox are all currently supported).  I have plans to try and make this a comma seperated configuration so we can run the suite in multiple browsers.
 * Finally extend your first test from BaseNavigationTest which bootstraps our testing framework.  I believe there is a more sophisticated way to handle this via annotations (perhaps a custom annotation or two) but this currently works.
 
+How to Add PageObjects
+----------------------
+Coming Soon!
+
 Changing Environments
 ---------------------
 The environment settings are controlled in the pom.xml as part of the profile.  To change simply modify the following section of code:
