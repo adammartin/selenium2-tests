@@ -1,7 +1,7 @@
 selenium2-tests
 ===============
 
-This project is intended to be a reference project for selenium test sweets.  It's based on the principles of the Page Object pattern.
+This project is intended to be a reference project for selenium test suites.  It's based on the principles of the Page Object pattern.
 
 The goal is to turn this project into a Maven Archetype to make UX Navigation Flow Tests easy to stand up for any given project.
 
