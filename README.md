@@ -20,17 +20,19 @@ mvn clean verify
 Changing Environments
 ---------------------
 The environment settings are controlled in the pom.xml as part of the profile.  To change simply modify the following section of code:
-'	<profiles>
-		<profile>
-			<id>SeleniumTest</id>
-			<activation>
-				<activeByDefault>true</activeByDefault>
-			</activation>
-			<properties>
-				<environment>qa</environment>
-			</properties>
-		</profile>
-	</profiles>'
+<code>
+	&lt;profiles&gt;
+		&lt;profile&gt;
+			&lt;id&gt;SeleniumTest&lt;/id&gt;
+			&lt;activation&gt;
+				&lt;activeByDefault&gt;true&lt;/activeByDefault&gt;
+			&lt;/activation&gt;
+			&lt;properties&gt;
+				&lt;environment&gt;qa&lt;/environment&gt;
+			&lt;/properties&gt;
+		&lt;/profile&gt;
+	&lt;/profiles&gt;
+</code>
 
 Notes
 =====
