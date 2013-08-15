@@ -8,6 +8,7 @@ import java.util.Properties;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
+import org.openqa.selenium.remote.RemoteWebDriver;
 
 public class ModernWebDriverFactory {
 
@@ -18,7 +19,7 @@ public class ModernWebDriverFactory {
   private static final String CHROME_EXECUTABLE_PROPERTY = "webdriver.chrome.driver";
   private static final String FIREFOX_EXECUTABLE_PROPERTY = "webdriver.firefox.bin";
   
-  private static final String INVALID_DRIVER_EXCEPTION_MESSAGE = "Invalid driverType supplied '%s', valid driver types are htmlunit and firefox";
+  private static final String INVALID_DRIVER_EXCEPTION_MESSAGE = "Invalid driverType supplied '%s', valid driver types are htmlunit, chrome, and firefox";
 
   public ModernWebDriver webDriver(Properties bundle) {
     final String applicationUrl = bundle.getProperty(APPLICATION_URL);
@@ -29,7 +30,7 @@ public class ModernWebDriverFactory {
       case FIREFOX_DRIVER :
         return fireFoxDriver(bundle, applicationUrl);
       case CHROME_DRIVER :
-        chromeDriver(bundle);
+        return chromeDriver(bundle);
       default: 
         throw new IllegalArgumentException(format(INVALID_DRIVER_EXCEPTION_MESSAGE, driverType));
     }
@@ -37,7 +38,8 @@ public class ModernWebDriverFactory {
 
   private ModernWebDriver chromeDriver(Properties bundle) {
     System.setProperty(CHROME_EXECUTABLE_PROPERTY, bundle.getProperty(DRIVER_LOCATION));
-    ChromeDriver driver = new ChromeDriver();
+    RemoteWebDriver driver = new ChromeDriver();
+    driver.get(bundle.getProperty(APPLICATION_URL));
     return new ModernWebDriver(driver, driver, driver);
   }
 

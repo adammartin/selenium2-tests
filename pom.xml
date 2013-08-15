@@ -1,10 +1,11 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>com.pillar</groupId>
-  <artifactId>selenium2-tests</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
-  <name>Page Object Pattern Selenium 2 Tests</name>
-  	<dependencies>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.pillar</groupId>
+	<artifactId>selenium2-tests</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>Page Object Pattern Selenium 2 Tests</name>
+	<dependencies>
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
@@ -42,7 +43,7 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
-		<build>
+	<build>
 		<resources>
 			<resource>
 				<directory>src/test/resources/environments/${environment}</directory>
