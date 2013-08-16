@@ -70,3 +70,7 @@ Logging
 log4j has been defaulted as the Logging framework for the test suite.  Each environment has it's own configuration so if in development you want to log output to an appropriate appender simply update the log4j.xml.
 
 If you downgrade Selenium to version 2.33 be forewarned that it includes a defect that someone left a hardcoded System.err.println statement that will blow up your console output with HtmlUnit statements. 
+
+Page Loading
+------------
+In order to handle cases where a page may take time to load especially with the use of Ajax in modern rich web sites teh choice was made to check if Ajax calls were completed.  This works with a max timeout and verifying that no ajax is still running.  The point to remember at this time is that if you have a page with Ajax always running you may want modify the framework to allow an optional number of running ajax calls that will always be running.  Please see BasePage.java which contains the logic.
